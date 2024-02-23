@@ -54,7 +54,7 @@ void loop() {
     Serial.println(checksum, HEX);
 
     // Verificación del checksum (reemplazar con el valor esperado)
-    if (checksum == 0x9D) {
+    if (checksum == lecturas[i][8]) {
       Serial.println("Checksum correcto!");
     } else {
       Serial.println("Error! Checksum incorrecto.");
