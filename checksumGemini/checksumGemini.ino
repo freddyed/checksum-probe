@@ -1,3 +1,7 @@
+// OXIGENO - H2S
+// Que se visualice H2S Oxigeno de 4 sensores
+// 
+
 // Función para calcular el checksum
 unsigned char FucCheckSum(unsigned char *i, unsigned char ln);
 
