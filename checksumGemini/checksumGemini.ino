@@ -1,6 +1,6 @@
 // OXIGENO - H2S
 // Que se visualice H2S Oxigeno de 4 sensores
-// 
+//
 
 // Función para calcular el checksum
 unsigned char FucCheckSum(unsigned char *i, unsigned char ln);
@@ -58,7 +58,9 @@ void loop() {
     Serial.println(checksum, HEX);
 
     // Verificación del checksum (reemplazar con el valor esperado)
-    if (checksum == lecturas[i][8]) {
+    unsigned char checksumTotal = 0x7A - checksum;
+    Serial.println(checksumTotal,HEX);
+    if (checksumTotal == lecturas[i][8]) {
       Serial.println("Checksum correcto!");
     } else {
       Serial.println("Error! Checksum incorrecto.");
@@ -71,11 +73,11 @@ void loop() {
 
 unsigned char FucCheckSum(unsigned char *i, unsigned char ln) {
   unsigned char j, tempq = 0;
-  i += 1;
+  i += 2;
   for (j = 0; j < (ln - 2); j++) {
     tempq += *i;
     i++;
   }
-  tempq = (~tempq) + 1;
+  //tempq = (~tempq) + 1;
   return (tempq);
 }
